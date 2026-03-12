@@ -1,0 +1,23 @@
+{
+  "/Users/yadyneshsonale/Desktop/RealTimeTranslator/RealTimeTranslator/RealTimeTranslatorApp.swift" : {
+    "const-values" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/RealTimeTranslator.build/Debug-iphonesimulator/RealTimeTranslator.build/Objects-normal/arm64/RealTimeTranslatorApp.swiftconstvalues",
+    "dependencies" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/RealTimeTranslator.build/Debug-iphonesimulator/RealTimeTranslator.build/Objects-normal/arm64/RealTimeTranslatorApp.d",
+    "diagnostics" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/RealTimeTranslator.build/Debug-iphonesimulator/RealTimeTranslator.build/Objects-normal/arm64/RealTimeTranslatorApp.dia",
+    "object" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/RealTimeTranslator.build/Debug-iphonesimulator/RealTimeTranslator.build/Objects-normal/arm64/RealTimeTranslatorApp.o",
+    "swift-dependencies" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/RealTimeTranslator.build/Debug-iphonesimulator/RealTimeTranslator.build/Objects-normal/arm64/RealTimeTranslatorApp.swiftdeps"
+  },
+  "/Users/yadyneshsonale/Desktop/RealTimeTranslator/RealTimeTranslator/ViewModels/TranslatorViewModel.swift" : {
+    "const-values" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/RealTimeTranslator.build/Debug-iphonesimulator/RealTimeTranslator.build/Objects-normal/arm64/TranslatorViewModel.swiftconstvalues",
+    "dependencies" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/RealTimeTranslator.build/Debug-iphonesimulator/RealTimeTranslator.build/Objects-normal/arm64/TranslatorViewModel.d",
+    "diagnostics" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/RealTimeTranslator.build/Debug-iphonesimulator/RealTimeTranslator.build/Objects-normal/arm64/TranslatorViewModel.dia",
+    "object" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/RealTimeTranslator.build/Debug-iphonesimulator/RealTimeTranslator.build/Objects-normal/arm64/TranslatorViewModel.o",
+    "swift-dependencies" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/RealTimeTranslator.build/Debug-iphonesimulator/RealTimeTranslator.build/Objects-normal/arm64/TranslatorViewModel.swiftdeps"
+  },
+  "/Users/yadyneshsonale/Desktop/RealTimeTranslator/RealTimeTranslator/Views/ContentView.swift" : {
+    "const-values" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/RealTimeTranslator.build/Debug-iphonesimulator/RealTimeTranslator.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/RealTimeTranslator.build/Debug-iphonesimulator/RealTimeTranslator.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/RealTimeTranslator.build/Debug-iphonesimulator/RealTimeTranslator.build/Objects-normal/arm64/ContentView.dia",
+    "object" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/RealTimeTranslator.build/Debug-iphonesimulator/RealTimeTranslator.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/RealTimeTranslator.build/Debug-iphonesimulator/RealTimeTranslator.build/Objects-normal/arm64/ContentView.swiftdeps"
+  }
+}

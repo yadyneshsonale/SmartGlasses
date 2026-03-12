@@ -1,0 +1,12 @@
+{
+  "/Users/yadyneshsonale/Desktop/RealTimeTranslator/RealTimeTranslator/RealTimeTranslatorApp.swift" : {
+    "abi-baseline-json" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/ArchiveIntermediates/RealTimeTranslator/IntermediateBuildFilesPath/RealTimeTranslator.build/Release-iphonesimulator/RealTimeTranslator.build/Objects-normal/arm64/RealTimeTranslator.abi.json",
+    "const-values" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/ArchiveIntermediates/RealTimeTranslator/IntermediateBuildFilesPath/RealTimeTranslator.build/Release-iphonesimulator/RealTimeTranslator.build/Objects-normal/arm64/RealTimeTranslator-primary.swiftconstvalues",
+    "dependencies" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/ArchiveIntermediates/RealTimeTranslator/IntermediateBuildFilesPath/RealTimeTranslator.build/Release-iphonesimulator/RealTimeTranslator.build/Objects-normal/arm64/RealTimeTranslator-primary.d",
+    "diagnostics" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/ArchiveIntermediates/RealTimeTranslator/IntermediateBuildFilesPath/RealTimeTranslator.build/Release-iphonesimulator/RealTimeTranslator.build/Objects-normal/arm64/RealTimeTranslator-primary.dia",
+    "objc-header" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/ArchiveIntermediates/RealTimeTranslator/IntermediateBuildFilesPath/RealTimeTranslator.build/Release-iphonesimulator/RealTimeTranslator.build/Objects-normal/arm64/RealTimeTranslator-Swift.h",
+    "swiftdoc" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/ArchiveIntermediates/RealTimeTranslator/IntermediateBuildFilesPath/RealTimeTranslator.build/Release-iphonesimulator/RealTimeTranslator.build/Objects-normal/arm64/RealTimeTranslator.swiftdoc",
+    "swiftmodule" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/ArchiveIntermediates/RealTimeTranslator/IntermediateBuildFilesPath/RealTimeTranslator.build/Release-iphonesimulator/RealTimeTranslator.build/Objects-normal/arm64/RealTimeTranslator.swiftmodule",
+    "swiftsourceinfo" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/ArchiveIntermediates/RealTimeTranslator/IntermediateBuildFilesPath/RealTimeTranslator.build/Release-iphonesimulator/RealTimeTranslator.build/Objects-normal/arm64/RealTimeTranslator.swiftsourceinfo"
+  }
+}

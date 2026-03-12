@@ -1,0 +1,48 @@
+{
+  "source": "/Users/yadyneshsonale/Desktop/RealTimeTranslator/RealTimeTranslator/Views/TranslateControlButtons.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Listening",
+        "location": {
+          "startingColumn": 40,
+          "startingLine": 37
+        }
+      },
+      {
+        "comment": "",
+        "key": "Start",
+        "location": {
+          "startingColumn": 54,
+          "startingLine": 37
+        }
+      },
+      {
+        "comment": "",
+        "key": "Stop",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 107
+        }
+      },
+      {
+        "comment": "",
+        "key": "Speak",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 162
+        }
+      },
+      {
+        "comment": "",
+        "key": "Clear",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 202
+        }
+      }
+    ]
+  },
+  "version": 1
+}

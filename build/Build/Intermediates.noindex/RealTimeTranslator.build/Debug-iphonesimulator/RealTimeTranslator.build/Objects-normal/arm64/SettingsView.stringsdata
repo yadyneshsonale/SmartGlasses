@@ -1,0 +1,128 @@
+{
+  "source": "/Users/yadyneshsonale/Desktop/RealTimeTranslator/RealTimeTranslator/Views/SettingsView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Settings",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 64
+        }
+      },
+      {
+        "comment": "",
+        "key": "Done",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 68
+        }
+      },
+      {
+        "comment": "",
+        "key": "Current Connection",
+        "location": {
+          "startingColumn": 19,
+          "startingLine": 94
+        }
+      },
+      {
+        "comment": "",
+        "key": "Port %lld",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 104
+        }
+      },
+      {
+        "comment": "",
+        "key": "AVAILABLE DEVICES",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 137
+        }
+      },
+      {
+        "comment": "",
+        "key": "Make sure your Raspberry Pi is on the same network",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 210
+        }
+      },
+      {
+        "comment": "",
+        "key": "Scanning...",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 205
+        }
+      },
+      {
+        "comment": "",
+        "key": "No devices found",
+        "location": {
+          "startingColumn": 47,
+          "startingLine": 205
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lldms",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 255
+        }
+      },
+      {
+        "comment": "",
+        "key": "MANUAL CONNECTION",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 292
+        }
+      },
+      {
+        "comment": "",
+        "key": "IP Address",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 312
+        }
+      },
+      {
+        "comment": "",
+        "key": "192.168.137.252",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 316
+        }
+      },
+      {
+        "comment": "",
+        "key": "Port",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 334
+        }
+      },
+      {
+        "comment": "",
+        "key": "8080",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 338
+        }
+      },
+      {
+        "comment": "",
+        "key": "Connect",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 355
+        }
+      }
+    ]
+  },
+  "version": 1
+}

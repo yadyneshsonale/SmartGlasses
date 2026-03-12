@@ -1,0 +1,79 @@
+{
+  "buildCommand" : {
+    "command" : "build",
+    "skipDependencies" : false,
+    "style" : "buildOnly"
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "4722c0f4e54c16a018438bdee172ad79f36a40a6d19759acd76139f9143c8c33"
+    }
+  ],
+  "containerPath" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/RealTimeTranslator.xcodeproj",
+  "continueBuildingAfterErrors" : false,
+  "dependencyScope" : "workspace",
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "install",
+    "activeArchitecture" : "arm64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "platform" : "iphonesimulator",
+      "sdk" : "iphonesimulator26.2",
+      "sdkVariant" : "iphonesimulator",
+      "supportedArchitectures" : [
+        "arm64",
+        "x86_64"
+      ],
+      "targetArchitecture" : "arm64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Products",
+      "derivedDataPath" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build",
+      "indexDataStoreFolderPath" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Index.noindex/PrecompiledHeaders",
+      "pchPath" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Release",
+    "overrides" : {
+      "commandLine" : {
+        "table" : {
+
+        }
+      },
+      "synthesized" : {
+        "table" : {
+          "ACTION" : "install",
+          "ASSET_PACK_FOLDER_PATH" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/ArchiveIntermediates/RealTimeTranslator/InstallationBuildProductsLocation/OnDemandResources",
+          "ASSETCATALOG_COMPILER_FLATTENED_APP_ICON_PATH" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/ArchiveIntermediates/RealTimeTranslator/BuildProductsPath/ProductIcon.png",
+          "DEPLOYMENT_LOCATION" : "YES",
+          "DEPLOYMENT_POSTPROCESSING" : "YES",
+          "DSTROOT" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/ArchiveIntermediates/RealTimeTranslator/InstallationBuildProductsLocation",
+          "EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE" : "NO",
+          "ENABLE_PREVIEWS" : "NO",
+          "ENABLE_SIGNATURE_AGGREGATION" : "YES",
+          "ENABLE_XOJIT_PREVIEWS" : "YES",
+          "INDEX_ENABLE_DATA_STORE" : "NO",
+          "MESSAGES_APPLICATION_EXTENSION_SUPPORT_FOLDER_PATH" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/ArchiveIntermediates/RealTimeTranslator/BuildProductsPath/MessagesApplicationExtensionSupport",
+          "MESSAGES_APPLICATION_SUPPORT_FOLDER_PATH" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/ArchiveIntermediates/RealTimeTranslator/BuildProductsPath/MessagesApplicationSupport",
+          "OBJROOT" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/ArchiveIntermediates/RealTimeTranslator/IntermediateBuildFilesPath",
+          "ONLY_ACTIVE_ARCH" : "YES",
+          "SHARED_PRECOMPS_DIR" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/ArchiveIntermediates/RealTimeTranslator/PrecompiledHeaders",
+          "SIGNATURE_METADATA_FOLDER_PATH" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/ArchiveIntermediates/RealTimeTranslator/BuildProductsPath/Signatures",
+          "SWIFT_STDLIB_TOOL_UNSIGNED_DESTINATION_DIR" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/ArchiveIntermediates/RealTimeTranslator/BuildProductsPath/SwiftSupport",
+          "SYMROOT" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/ArchiveIntermediates/RealTimeTranslator/BuildProductsPath",
+          "WATCHKIT_2_SUPPORT_FOLDER_PATH" : "/Users/yadyneshsonale/Desktop/RealTimeTranslator/build/Build/Intermediates.noindex/ArchiveIntermediates/RealTimeTranslator/BuildProductsPath/WatchKitSupport2"
+        }
+      }
+    }
+  },
+  "schemeCommand" : "archive",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}

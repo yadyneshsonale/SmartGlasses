@@ -1,0 +1,40 @@
+{
+  "source": "/Users/yadyneshsonale/Desktop/RealTimeTranslator/RealTimeTranslator/Views/ContentView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Permission Required",
+        "location": {
+          "startingColumn": 16,
+          "startingLine": 166
+        }
+      },
+      {
+        "comment": "",
+        "key": "Open Settings",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 167
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 172
+        }
+      },
+      {
+        "comment": "",
+        "key": "Please enable speech recognition permissions in Settings.",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 174
+        }
+      }
+    ]
+  },
+  "version": 1
+}
