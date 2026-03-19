@@ -26,6 +26,7 @@
 		A1000020 /* DeviceDiscoveryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000020 /* DeviceDiscoveryService.swift */; };
 		A1000021 /* ConnectionStatsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000021 /* ConnectionStatsPanel.swift */; };
 		A1000022 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000022 /* SettingsView.swift */; };
+		A1000023 /* SpeechOutputQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000023 /* SpeechOutputQueue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		A2000020 /* DeviceDiscoveryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDiscoveryService.swift; sourceTree = "<group>"; };
 		A2000021 /* ConnectionStatsPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatsPanel.swift; sourceTree = "<group>"; };
 		A2000022 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A2000023 /* SpeechOutputQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechOutputQueue.swift; sourceTree = "<group>"; };
 		A3000001 /* RealTimeTranslator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealTimeTranslator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -117,6 +119,7 @@
 				A2000015 /* NetworkSender.swift */,
 				A2000016 /* TranslationWorker.swift */,
 				A2000020 /* DeviceDiscoveryService.swift */,
+				A2000023 /* SpeechOutputQueue.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				A1000020 /* DeviceDiscoveryService.swift in Sources */,
 				A1000021 /* ConnectionStatsPanel.swift in Sources */,
 				A1000022 /* SettingsView.swift in Sources */,
+				A1000023 /* SpeechOutputQueue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
