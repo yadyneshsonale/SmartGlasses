@@ -17,8 +17,10 @@ class TTSService: NSObject, AVSpeechSynthesizerDelegate {
     }
 
     // MARK: - Speak
-    func speak(text: String, language: String, completion: (() -> Void)? = nil) {
-        synthesizer.stopSpeaking(at: .immediate)
+    func speak(text: String, language: String, interrupt: Bool = true, completion: (() -> Void)? = nil) {
+        if interrupt {
+            synthesizer.stopSpeaking(at: .immediate)
+        }
         completionHandler = completion
 
         let utterance = AVSpeechUtterance(string: text)
