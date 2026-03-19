@@ -250,9 +250,10 @@ class TranslationWorker: ObservableObject {
         lastFinalText = ""
         currentPartialText = ""
         
-        // End current recognition
-        recognitionRequest?.endAudio()
-        
+        // End current recognition and force a restart so we don't keep feeding audio
+        // into an ended request (which can stall the pipeline after the first utterance).
+        stopRecognition()
+
         // Process the speech
         await processCompletedSpeech(textToProcess)
     }
@@ -302,16 +303,28 @@ class TranslationWorker: ObservableObject {
             return
         }
         
-        // 2. Speak on phone speaker
+        // 2. Generate PCM frames and enqueue for Raspberry Pi playback
         workerStatus = .synthesizing
         isSpeaking = true
-        
+
         await withCheckedContinuation { (continuation: CheckedContinuation<Void, Never>) in
-            ttsService.speak(text: translatedText, language: targetLanguage.bcp47Code) {
-                continuation.resume()
-            }
+            ttsService.synthesizePCMFrames(
+                text: translatedText,
+                language: targetLanguage.bcp47Code,
+                frameDurationMs: 20,
+                onFrame: { [weak self] frame in
+                    guard let self else { return }
+                    Task { [weak self] in
+                        guard let self else { return }
+                        await self.outgoingBuffer.enqueue(frame)
+                    }
+                },
+                completion: {
+                    continuation.resume()
+                }
+            )
         }
-        
+
         isSpeaking = false
         workerStatus = .listening
     }

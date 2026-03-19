@@ -1,2 +1,0 @@
-Target dependency graph (1 target)
-Target 'RealTimeTranslator' in project 'RealTimeTranslator' (no dependencies)
