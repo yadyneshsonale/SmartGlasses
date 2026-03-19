@@ -1,1 +1,0 @@
-../../InstallationBuildProductsLocation/Applications/RealTimeTranslator.app

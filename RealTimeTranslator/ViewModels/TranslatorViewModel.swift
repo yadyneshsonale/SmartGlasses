@@ -89,7 +89,7 @@ class TranslatorViewModel: ObservableObject {
     @Published var lastTranslatedText: String = ""
     
     // Connection settings
-    @Published var raspberryPiHost: String = "192.168.137.252" {
+    @Published var raspberryPiHost: String = "raspberrypi.local" {
         didSet {
             if isRunning && oldValue != raspberryPiHost {
                 reconnectWithNewSettings()

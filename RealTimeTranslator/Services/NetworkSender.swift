@@ -18,6 +18,13 @@ class NetworkSender: ObservableObject {
     private var urlSession: URLSession?
     private let outgoingBuffer: OutgoingAudioBuffer
     private var sendTask: Task<Void, Never>?
+    private var reconnectTask: Task<Void, Never>?
+
+    private var currentHost: String = ""
+    private var currentPort: Int = 8081
+    private let candidatePaths: [String] = ["/audio", "/audio-out"]
+    private var activePathIndex: Int = 0
+    private var hasSuccessfullySent: Bool = false
     
     /// Target send rate in packets per second
     private let targetSendRate: Int = 50 // ~20ms per packet
@@ -56,8 +63,13 @@ class NetworkSender: ObservableObject {
     ///   - port: WebSocket port (default 8081 for separate send channel)
     func connect(host: String, port: Int = 8081) {
         guard webSocket == nil else { return }
-        
-        guard let url = URL(string: "ws://\(host):\(port)/audio-out") else {
+
+        currentHost = host
+        currentPort = port
+        activePathIndex = 0
+        hasSuccessfullySent = false
+
+        guard let url = makeURL(host: host, port: port, pathIndex: activePathIndex) else {
             sendStatus = .error("Invalid URL")
             return
         }
@@ -86,6 +98,9 @@ class NetworkSender: ObservableObject {
     func disconnect() {
         sendTask?.cancel()
         sendTask = nil
+
+        reconnectTask?.cancel()
+        reconnectTask = nil
         
         webSocket?.cancel(with: .goingAway, reason: nil)
         webSocket = nil
@@ -96,6 +111,7 @@ class NetworkSender: ObservableObject {
         isSending = false
         sendStatus = .idle
         sentPacketCount = 0
+        hasSuccessfullySent = false
     }
     
     // MARK: - Send Loop
@@ -143,6 +159,7 @@ class NetworkSender: ObservableObject {
         do {
             try await webSocket.send(.data(data))
             sentPacketCount += 1
+            hasSuccessfullySent = true
         } catch {
             handleSendError(error)
         }
@@ -165,6 +182,52 @@ class NetworkSender: ObservableObject {
         
         lastError = error.localizedDescription
         sendStatus = .error(error.localizedDescription)
+
+        // If we haven't successfully sent yet, try an alternate WebSocket path.
+        if !hasSuccessfullySent {
+            attemptReconnectWithAlternatePath()
+        }
+    }
+
+    private func makeURL(host: String, port: Int, pathIndex: Int) -> URL? {
+        let path = candidatePaths[min(max(pathIndex, 0), candidatePaths.count - 1)]
+        return URL(string: "ws://\(host):\(port)\(path)")
+    }
+
+    private func attemptReconnectWithAlternatePath() {
+        guard activePathIndex + 1 < candidatePaths.count else { return }
+        guard !currentHost.isEmpty else { return }
+
+        reconnectTask?.cancel()
+        reconnectTask = Task { [weak self] in
+            guard let self else { return }
+
+            // Brief delay to avoid tight reconnect loops
+            try? await Task.sleep(nanoseconds: 250_000_000)
+            guard !Task.isCancelled else { return }
+
+            self.sendTask?.cancel()
+            self.sendTask = nil
+            self.webSocket?.cancel(with: .goingAway, reason: nil)
+            self.webSocket = nil
+            self.urlSession?.invalidateAndCancel()
+            self.urlSession = nil
+
+            self.activePathIndex += 1
+            guard let url = self.makeURL(host: self.currentHost, port: self.currentPort, pathIndex: self.activePathIndex) else {
+                return
+            }
+
+            let config = URLSessionConfiguration.default
+            config.timeoutIntervalForRequest = 30
+            self.urlSession = URLSession(configuration: config)
+
+            self.webSocket = self.urlSession?.webSocketTask(with: url)
+            self.webSocket?.resume()
+
+            self.sendStatus = .ready
+            self.startSendLoop()
+        }
     }
     
     // MARK: - Control Messages

@@ -22,8 +22,10 @@ class TranslationWorker: ObservableObject {
     private let outgoingBuffer: OutgoingAudioBuffer
     private let translationService: TranslationService
     private let ttsService: TTSService
+    private let speechOutputQueue = SpeechOutputQueue(maxSize: 20)
     
     private var workerTask: Task<Void, Never>?
+    private var playbackTask: Task<Void, Never>?
     private var speechRecognizer: SFSpeechRecognizer?
     
     // Streaming recognition state
@@ -48,7 +50,7 @@ class TranslationWorker: ObservableObject {
         commonFormat: .pcmFormatInt16,
         sampleRate: 16000,
         channels: 1,
-        interleaved: true
+        interleaved: false
     )!
     
     // MARK: - Worker Status
@@ -103,6 +105,11 @@ class TranslationWorker: ObservableObject {
         speechRecognizer = SFSpeechRecognizer(locale: sourceLanguage.locale)
         
         workerStatus = .running
+
+        // Start the dedicated speaker consumer so speaking never blocks STT.
+        playbackTask = Task { [weak self] in
+            await self?.runPlaybackLoop()
+        }
         
         // Start the main audio processing loop
         workerTask = Task { [weak self] in
@@ -114,15 +121,42 @@ class TranslationWorker: ObservableObject {
     func stop() {
         workerTask?.cancel()
         workerTask = nil
+
+        playbackTask?.cancel()
+        playbackTask = nil
         
         silenceTimer?.cancel()
         silenceTimer = nil
         
         stopRecognition()
+
+        Task { [weak self] in
+            await self?.speechOutputQueue.clear()
+        }
         
         workerStatus = .idle
     }
     
+    // MARK: - Playback Loop (Speaker Queue Consumer)
+    private func runPlaybackLoop() async {
+        while !Task.isCancelled {
+            if let next = await speechOutputQueue.dequeue() {
+                await speakOnPhone(next)
+            } else {
+                try? await Task.sleep(nanoseconds: 20_000_000) // 20ms
+            }
+        }
+    }
+
+    private func speakOnPhone(_ text: String) async {
+        await withCheckedContinuation { (continuation: CheckedContinuation<Void, Never>) in
+            // Do not interrupt: we want FIFO, one-time playback of queued items.
+            ttsService.speak(text: text, language: targetLanguage.bcp47Code, interrupt: false) {
+                continuation.resume()
+            }
+        }
+    }
+
     // MARK: - Streaming Recognition Loop
     
     /// Main streaming loop - continuously processes audio from jitter buffer
@@ -234,11 +268,7 @@ class TranslationWorker: ObservableObject {
             guard !Task.isCancelled else { return }
             
             // Silence detected - end current recognition and process
-            await MainActor.run {
-                Task { @MainActor [weak self] in
-                    await self?.handleSilenceDetected()
-                }
-            }
+            await self?.handleSilenceDetected()
         }
     }
     
@@ -250,9 +280,10 @@ class TranslationWorker: ObservableObject {
         lastFinalText = ""
         currentPartialText = ""
         
-        // End current recognition
-        recognitionRequest?.endAudio()
-        
+        // End current recognition and force a restart so we don't keep feeding audio
+        // into an ended request (which can stall the pipeline after the first utterance).
+        stopRecognition()
+
         // Process the speech
         await processCompletedSpeech(textToProcess)
     }
@@ -302,17 +333,9 @@ class TranslationWorker: ObservableObject {
             return
         }
         
-        // 2. Speak on phone speaker
+        // 2. Enqueue for phone speaker playback (FIFO queue)
         workerStatus = .synthesizing
-        isSpeaking = true
-        
-        await withCheckedContinuation { (continuation: CheckedContinuation<Void, Never>) in
-            ttsService.speak(text: translatedText, language: targetLanguage.bcp47Code) {
-                continuation.resume()
-            }
-        }
-        
-        isSpeaking = false
+        await speechOutputQueue.enqueue(translatedText)
         workerStatus = .listening
     }
     
