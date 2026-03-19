@@ -303,26 +303,14 @@ class TranslationWorker: ObservableObject {
             return
         }
         
-        // 2. Generate PCM frames and enqueue for Raspberry Pi playback
+        // 2. Speak on phone speaker
         workerStatus = .synthesizing
         isSpeaking = true
 
         await withCheckedContinuation { (continuation: CheckedContinuation<Void, Never>) in
-            ttsService.synthesizePCMFrames(
-                text: translatedText,
-                language: targetLanguage.bcp47Code,
-                frameDurationMs: 20,
-                onFrame: { [weak self] frame in
-                    guard let self else { return }
-                    Task { [weak self] in
-                        guard let self else { return }
-                        await self.outgoingBuffer.enqueue(frame)
-                    }
-                },
-                completion: {
-                    continuation.resume()
-                }
-            )
+            ttsService.speak(text: translatedText, language: targetLanguage.bcp47Code) {
+                continuation.resume()
+            }
         }
 
         isSpeaking = false
